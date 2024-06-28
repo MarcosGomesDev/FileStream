@@ -1,5 +1,7 @@
 import Header from "@/components/Header";
 
+import { AddButton } from "@/components/AddButton";
+import { AddDialog } from "@/components/AddDialog";
 import "../globals.css";
 
 export default function RootLayout({
@@ -8,9 +10,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
+    <>
       <Header />
-      {children}
-    </div>
+      <div>
+        {children}
+        <AddButton />
+        <AddDialog />
+      </div>
+    </>
   );
 }
