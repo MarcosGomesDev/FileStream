@@ -1,10 +1,25 @@
-export default function Home() {
+import { FolderCard } from "@/components/FolderCard";
+import { StorageServiceFactory } from "@/services/storage.service";
+
+export default async function Home() {
+  const folders = await StorageServiceFactory.create().getFolders();
+
   return (
     <>
       <div className="container">
-        <h1>FileStream</h1>
+        <div className="py-5">
+          <p className="text-xl font-semibold">Todos os arquivos</p>
+        </div>
 
-        <div className="h-[800px]"></div>
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          {folders.map((folder) => (
+            <FolderCard
+              key={folder.name}
+              title={folder.name}
+              href={`/folders/${folder.name}`}
+            />
+          ))}
+        </div>
       </div>
     </>
   );
