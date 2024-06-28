@@ -3,3 +3,9 @@ export interface Folder {
   path: string;
   tag: string;
 }
+
+export interface FolderContent {
+  data: Folder[];
+  cursor: string;
+  hasMore: boolean;
+}
