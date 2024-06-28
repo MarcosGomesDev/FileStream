@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "dropzone/dist/dropzone.css";
 
 @layer base {
   :root {
