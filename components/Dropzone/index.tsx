@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-disable no-unused-vars */
 import DropzoneJs, { DropzoneOptions } from "dropzone";
 import React, { createRef, HTMLAttributes, useEffect } from "react";
