@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Folder } from "@/app/interfaces/folder";
+import { Folder, FolderContent } from "@/app/interfaces/folder";
 import { AuthService } from "./auth.service";
 
 export class StorageService {
@@ -19,7 +19,7 @@ export class StorageService {
     return await response.json();
   }
 
-  async getFolder(path: string) {
+  async getFolder(path: string): Promise<FolderContent> {
     const response = await fetch(
       `${process.env.BASE_URL}/storage/get-folder?path=${path}`,
       {
@@ -29,7 +29,7 @@ export class StorageService {
       },
     );
 
-    return response.json();
+    return await response.json();
   }
 
   async createFolder(input: { name: string; path: string }) {
@@ -43,7 +43,7 @@ export class StorageService {
       },
     );
 
-    return response.json();
+    return await response.json();
   }
 
   async uploadFile(input: { file: File; path: string }) {
@@ -61,7 +61,7 @@ export class StorageService {
       },
     );
 
-    return response.json();
+    return await response.json();
   }
 }
 
