@@ -19,7 +19,7 @@ export default async function FolderPage({ params: { id } }: FolderPageProps) {
       <Header title={id} />
       {folder.data.length > 0 ? (
         <div className="mt-6 space-y-12">
-          <div className="grid grid-cols-2 justify-center justify-items-center gap-2 min-[450px]:grid-cols-3 min-[620px]:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {folder.data
               .filter((item: Folder) => item.tag === "folder")
               .map((item: Folder) => (
@@ -30,11 +30,11 @@ export default async function FolderPage({ params: { id } }: FolderPageProps) {
                 />
               ))}
           </div>
-          <div className="grid grid-cols-2 justify-center justify-items-center gap-2 min-[450px]:grid-cols-3 min-[620px]:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
             {folder.data
               .filter((item: Folder) => item.tag === "file")
               .map((item: Folder) => (
-                <FileCard key={item.name} item={item} />
+                <FileCard key={item.name} item={item} className="min-w-full" />
               ))}
           </div>
         </div>
