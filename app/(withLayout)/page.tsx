@@ -1,5 +1,6 @@
 import { FolderCard } from "@/components/FolderCard";
 import { StorageServiceFactory } from "@/services/storage.service";
+import { Folder } from "../interfaces/folder";
 
 export default async function Home() {
   const folders = await StorageServiceFactory.create().getFolders();
@@ -12,7 +13,7 @@ export default async function Home() {
         </div>
 
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          {folders.map((folder) => (
+          {folders.map((folder: Folder) => (
             <FolderCard
               key={folder.name}
               title={folder.name}
