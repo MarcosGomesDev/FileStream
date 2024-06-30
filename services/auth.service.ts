@@ -1,4 +1,4 @@
-import { cookies } from "next/headers";
+const { cookies } = require("next/headers");
 
 export class AuthService {
   async login(input: { email: string; password: string }) {
